@@ -16,8 +16,10 @@ Jag forbattrade ocksa anvandarupplevelsen genom att lagga till en enkel meny. Is
 
 En sista viktig forbattring var att normalisera namnen innan de sparas eller soks efter. Det betyder att om anvandaren till exempel skriver extra mellanslag eller blandar stora och sma bokstaver sa behandlas namnet anda pa ett konsekvent satt. Det gor att programmet blir mer stabilt och att resultatet ser renare ut.
 
+For att styrka att forbattringarna faktiskt fungerar lade jag ocksa till ett separat testprojekt med enkla automatiserade tester. De testerna kontrollerar bland annat sokning, sortering, hantering av dubbletter och giltiga menyval. Testprojektet ar inte ett extra anvandarprogram, utan finns bara for verifiering av losningen.
+
 Nar jag var klar med andringarna tyckte jag att programmet kandes betydligt mer genomarbetat an originalversionen. Det blev enklare att anvanda, enklare att lasa och mer effektivt bakom kulisserna.
 
-Jag dokumenterade ocksa arbetet med Git. Jag skapade ett eget repository for projektet, gjorde en forsta commit och arbetade sedan vidare i branchen `feature_utokade_funktioner`. Nar forbattringarna var klara mergades den branchen tillbaka till `master`. Pa det sattet blev hela processen tydlig och latt att folja.
+Jag dokumenterade ocksa arbetet med Git. Jag skapade ett eget repository for projektet, gjorde en forsta commit och arbetade sedan vidare i branchen `feature_utokade_funktioner`. Nar forbattringarna var klara mergades den branchen tillbaka till `main`. Pa det sattet blev hela processen tydlig och latt att folja.
 
 Sammanfattningsvis tycker jag att uppgiften var bra eftersom den visade att kod inte bara ska fungera, utan ocksa vara tydlig, effektiv och latt att utveckla vidare. Genom att forst granska koden och sedan forbattrade den fick jag en battre forstaelse for hur sma designval kan paverka hela programmet.

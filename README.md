@@ -45,6 +45,9 @@ For att gora losningen mer trovärdig finns nu enkla automatiserade tester for d
 3. att sorteringen foljer svensk kulturordning
 4. att menyval bara accepterar giltiga alternativ
 
+`NameSorter` ar sjalva programmet som anvandaren kor.
+`NameSorter.Tests` ar inte ett extra program, utan ett separat testprojekt som bara finns for att verifiera att losningen fungerar som den ska.
+
 Kor verifieringen med:
 
 ```powershell
