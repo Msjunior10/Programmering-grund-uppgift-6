@@ -1,6 +1,15 @@
 # NameSorter - kodgranskning och optimering
 
-Det har projektet bygger pa ett enkelt C#-program som arbetar med en lista av namn. Grundversionen kunde skriva ut namn, sortera dem och lata anvandaren soka efter ett namn. I den har versionen har programmet granskats och forbedrats for att bli mer strukturerat, mer anvandarvanligt och mer effektivt.
+Det har projektet ar en C#-konsolapplikation som utgar fran en enkel namnlista och utvecklas vidare genom kodgranskning, optimering och Git-dokumentation.
+
+Programmet kan:
+
+1. visa en lista med namn
+2. sortera namn enligt svenska sorteringsregler
+3. soka efter namn pa ett effektivare satt
+4. lagga till nya namn med validerad inmatning
+
+Syftet med projektet ar att visa hur ett enkelt program kan forbattras nar man arbetar med struktur, prestanda, anvandarupplevelse och versionshantering.
 
 ## Vad som var svagt i originalkoden
 
@@ -39,7 +48,7 @@ git branch feature_utokade_funktioner
 git checkout feature_utokade_funktioner
 git add .
 git commit -m "Forbattra namnnormalisering och anvandarupplevelse"
-git checkout master
+git checkout main
 git merge feature_utokade_funktioner
 git log --oneline --graph
 ```
