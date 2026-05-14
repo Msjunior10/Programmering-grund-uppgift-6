@@ -17,6 +17,7 @@ Detta projekt utgar fran ett enkelt C#-program som sorterar en lista med namn oc
 3. Programmet fick en enkel meny med validering av anvandarens val.
 4. Namnlogiken flyttades till klassen `NameCatalog` for battre struktur.
 5. Kodkommentarer lades till pa stallen dar andringarnas syfte ar viktigt att forsta.
+6. Namn normaliseras nu innan de sparas eller soks efter, vilket ger jamnare presentation och forhindrar inkonsekvent inmatning.
 
 ## Exempel pa Git-flode for uppgiften
 

@@ -111,12 +111,14 @@ internal static class Program
 
 internal sealed class NameCatalog
 {
+	private readonly CultureInfo culture;
 	private readonly List<string> names;
 	private readonly HashSet<string> nameIndex;
 	private readonly CompareInfo compareInfo;
 
 	internal NameCatalog(IEnumerable<string> initialNames, CultureInfo culture)
 	{
+		this.culture = culture;
 		StringComparer searchComparer = StringComparer.Create(culture, ignoreCase: true);
 
 		// Ett hash-index ger snabbare sokningar nar listan blir stor.
@@ -136,7 +138,7 @@ internal sealed class NameCatalog
 
 	internal bool Contains(string name)
 	{
-		return nameIndex.Contains(name);
+		return nameIndex.Contains(NormalizeName(name));
 	}
 
 	internal void Sort()
@@ -152,16 +154,22 @@ internal sealed class NameCatalog
 			return false;
 		}
 
-		string trimmedName = name.Trim();
+		// Normalisering gor listan mer konsekvent oavsett hur anvandaren skriver namnet.
+		string normalizedName = NormalizeName(name);
 
-		if (!nameIndex.Add(trimmedName))
+		if (!nameIndex.Add(normalizedName))
 		{
-			message = $"{trimmedName} finns redan i listan.";
+			message = $"{normalizedName} finns redan i listan.";
 			return false;
 		}
 
-		names.Add(trimmedName);
-		message = $"{trimmedName} har lagts till i listan.";
+		names.Add(normalizedName);
+		message = $"{normalizedName} har lagts till i listan.";
 		return true;
+	}
+
+	private string NormalizeName(string name)
+	{
+		return culture.TextInfo.ToTitleCase(name.Trim().ToLower(culture));
 	}
 }
