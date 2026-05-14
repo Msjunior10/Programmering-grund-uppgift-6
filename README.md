@@ -1,25 +1,35 @@
 # NameSorter - kodgranskning och optimering
 
-Detta projekt utgar fran ett enkelt C#-program som sorterar en lista med namn och later anvandaren soka efter ett namn. Versionen i detta repo ar en forbattrad variant som uppfyller kraven for avancerad kodgranskning och optimering.
+Det har projektet bygger pa ett enkelt C#-program som arbetar med en lista av namn. Grundversionen kunde skriva ut namn, sortera dem och lata anvandaren soka efter ett namn. I den har versionen har programmet granskats och forbedrats for att bli mer strukturerat, mer anvandarvanligt och mer effektivt.
 
-## Identifierade problem i originalkoden
+## Vad som var svagt i originalkoden
 
-1. Sokningen anvande `List.Contains`, vilket ar linjar sokning och blir langsamt vid stora datamangder.
-2. Sorteringen anvande standardbeteende utan tydlig kulturhantering, vilket kan ge fel ordning for svenska bokstaver som `A`, `O` och `O` med prickar/ringar.
-3. Anvandarinteraktionen saknade felhantering for tom eller ogiltig inmatning.
-4. All logik lag i `Main`, vilket gjorde koden svar att testa, ateranvanda och bygga ut.
-5. Programmet kunde inte enkelt hantera tillagg av nya namn eller forbattrad menylogik.
+Nar jag granskade originalkoden hittade jag flera delar som kunde forbattras:
 
-## Genomforda forbattringar
+1. Sokningen anvande `List.Contains`, vilket innebar en linjar sokning som blir mindre effektiv nar datan vaxer.
+2. Sorteringen tog inte tydlig hansyn till svensk kultur, vilket kunde ge mindre korrekt ordning for namn med `Å`, `Ä` och `Ö`.
+3. All logik lag samlad i `Main`, vilket gjorde koden svarare att lasa och bygga ut.
+4. Programmet saknade tydlig felhantering for tom inmatning och ogiltiga val.
+5. Anvandarupplevelsen var begransad eftersom programmet inte hade nagon tydlig meny eller fortsatt arbetsflode.
+
+## Forbattringar som genomfordes
+
+For att hoja kvaliteten i programmet gjorde jag flera forbattringar:
 
 1. Sokningen effektiviserades med `HashSet<string>` for snabbare uppslagning.
-2. Sorteringen gjordes kulturmedveten med `CultureInfo("sv-SE")` och `CompareInfo`.
-3. Programmet fick en enkel meny med validering av anvandarens val.
-4. Namnlogiken flyttades till klassen `NameCatalog` for battre struktur.
-5. Kodkommentarer lades till pa stallen dar andringarnas syfte ar viktigt att forsta.
-6. Namn normaliseras nu innan de sparas eller soks efter, vilket ger jamnare presentation och forhindrar inkonsekvent inmatning.
+2. Sorteringen anpassades till svensk kultur med `CultureInfo("sv-SE")` och `CompareInfo`.
+3. Namnlogiken flyttades till klassen `NameCatalog` for att ge tydligare struktur.
+4. Programmet fick en enkel meny dar anvandaren kan soka, lagga till namn, visa listan eller avsluta.
+5. Inmatning valideras sa att tomma svar och ogiltiga val hanteras tydligare.
+6. Namn normaliseras innan de sparas eller soks efter, vilket ger ett mer konsekvent resultat.
 
-## Exempel pa Git-flode for uppgiften
+## Resultat
+
+Efter andringarna ar programmet mer stabilt och enklare att anvanda. Koden ar ocksa mer uppdelad och lattare att vidareutveckla. Den storsta tekniska skillnaden ar att sokningen nu ar mer effektiv, samtidigt som sorteringen fungerar battre for svenska namn.
+
+## Git-flode
+
+Arbetet dokumenterades med Git enligt uppgiftens krav.
 
 ```powershell
 git init
@@ -28,7 +38,7 @@ git commit -m "Initial commit: skapade NameSorter-projekt"
 git branch feature_utokade_funktioner
 git checkout feature_utokade_funktioner
 git add .
-git commit -m "Forbattra sokning, sortering och felhantering"
+git commit -m "Forbattra namnnormalisering och anvandarupplevelse"
 git checkout master
 git merge feature_utokade_funktioner
 git log --oneline --graph
