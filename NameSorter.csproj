@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="NameSorter.Tests\**\*.cs" />
+    <None Include="NameSorter.Tests\**\*" Exclude="NameSorter.Tests\bin\**;NameSorter.Tests\obj\**" />
+  </ItemGroup>
+
 </Project>

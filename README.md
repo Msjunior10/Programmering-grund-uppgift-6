@@ -36,6 +36,21 @@ For att hoja kvaliteten i programmet gjorde jag flera forbattringar:
 
 Efter andringarna ar programmet mer stabilt och enklare att anvanda. Koden ar ocksa mer uppdelad och lattare att vidareutveckla. Den storsta tekniska skillnaden ar att sokningen nu ar mer effektiv, samtidigt som sorteringen fungerar battre for svenska namn.
 
+## Verifiering
+
+For att gora losningen mer trovärdig finns nu enkla automatiserade tester for de viktigaste forbattringarna:
+
+1. att sokningen fungerar trots blandning av versaler, gemener och extra mellanslag
+2. att dubbletter stoppas efter normalisering
+3. att sorteringen foljer svensk kulturordning
+4. att menyval bara accepterar giltiga alternativ
+
+Kor verifieringen med:
+
+```powershell
+dotnet test NameSorter.Tests/NameSorter.Tests.csproj
+```
+
 ## Git-flode
 
 Arbetet dokumenterades med Git enligt uppgiftens krav.
